@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<body>
+    <div style="display: flex; font-size: 20px; font-weight: bold; background-color: black; color: white; padding-top: 50px; padding-left: 500px; height: 840px;">
+        <div>
+            <h1>{{user}}'s Update</h1><br><br>
+            <img src="https://i.pinimg.com/originals/e9/4b/38/e94b38a252a6e5c1e7fdce0181bb3ddd.gif" width="400px" height="600px">
+        </div>
+        <div style="padding-left: 150px; padding-top: 20px;">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3 mt-5">
+                    <label class="form-label">USERNAME</label><br>
+                    <input type ="text" value ="{{user}}" disabled>
+                </div>
+                <div class="mb-3 mt-5">
+                    <label class="form-label">Password</label><br>
+                    <input type ="password" name="upass">
+                </div>
+                <div class="mb-3 mt-5">
+                    <label class="form-label">Email</label><br>
+                    <input type ="text" value ="{{user.email}}" name="umail">
+                </div>
+                <div class="mb-3 mt-5">
+                    <label class="form-label">Commnet</label><br>
+                    <textarea class="form-control" name="ucomn" placeholder="자기소개"></textarea>
+                </div>
+                <div class="mb-3 mt-5">
+                    <label class="form-label">Profile Photo</label><br>
+                    <input type="file" class="form-control" name="upic">
+                </div>
+                <div class="text-end">
+                    <button class = "btn btn-dark">Save</button>
+                    <a href="{% url 'Main:profile' %}"><button type="button" class ="btn btn-dark">뒤로가기</button></a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+{% endblock%}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<body>
+    <div style="display: flex; font-size: 20px; font-weight: bold; background-color: black; color: white; padding-top: 50px; padding-left: 500px; height: 840px;">
+        <div>
+            <h1>{{user}}'s Profile</h1>
+            <hr>
+            <img src ="{{ user.getpic }}" class="rounded-circle" height="250px">
+        </div>
+        <div style="padding-left: 150px; padding-top: 20px;">
+            <div class="mb-3 mt-5">
+                <label class="form-label">USERNAME</label><br>
+                <input type ="text" value ="{{user}}" disabled><br>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">PASSWORD</label><br>
+                <input type ="text" value ="{{ user.pass }}" disabled><br>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label><br>
+                <input type ="text" value ="{{user.email}}" disabled><br>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Comment</label><br>
+                <textarea class="form-control" disabled style="font-weight: bold; height: 100px">{{ user.comment }}</textarea>
+            </div>
+            <div class ="text-end">
+                <a href ="{% url 'Main:update' %}"><button class="btn btn-dark">UPDATE</button></a>
+                <a href ="{% url 'Main:delete' %}"><button class="btn btn-danger">계정삭제</button></a>
+            </div>
+
+        </div>
+    </div>
+</body>
+{% endblock%}
+
+

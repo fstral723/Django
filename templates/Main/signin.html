@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block noauth %}
+
+<body>
+    <div style="display: flex; justify-content: center; padding-left: 150px; padding-top: 150px; height: 840px; background-color: black; color: white;">
+        <div style="background-color: black; width: 500px;">
+            <form method="post">
+                {% csrf_token %}
+                <h1><b>로그인</b></h1>
+                <div class="mt-5">
+                    <input type="text" name="uname" class="form-control" placeholder="INPUT USERNAME" style="font-weight: bold; width: 400px;">
+                    <input type="password" name="upass" class="form-control mt-4" placeholder="INPUT PASSWORD" style="font-weight: bold; width: 400px;"><br><br>
+                    <button class="btn btn-dark">LOGIN</button>
+                </div>
+            </form>
+        </div>
+        <div style="background-color: black; width: 600px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/59ee7776b1ffb6f51e078009/1630712814874-4DMYCUQCKCGGP9TYUTDV/login-gif-12.gif" width="600px" height="600px">
+        </div>
+    </div>
+</body>
+{% endblock%}
+

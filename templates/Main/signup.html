@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block noauth %}
+
+<body>
+    <div style="display: flex; justify-content: center; padding-left: 80px; padding-top: 80px; height: 840px; background-color: black; color: white;">
+        <div style="background-color: black; width: 500px;">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1><b>회원가입</b></h1>
+                <div class="mb-3 mt-5">
+                    <label class="form-label">ID</label><br>
+                    <input type="text" name="uname" placeholder="아이디입력"><br><br>
+                    <label class="form-label">Password</label><br>
+                    <input type="password" name="upass" placeholder="비밀번호 입력"><br><br>
+                    <label class="form-label">Commnet</label><br>
+                    <textarea class="form-control" name="ucomn" placeholder="자기소개" style="width: 600px; height: 200px;"></textarea><br>
+                    <label class="form-label">Profile Photo</label><br>
+                    <input type="file" class="form-control" name ="upic" id="exampleInputPassword1" style="width: 600px;"><br>
+                    <button class="btn btn-dark">회원가입</button>
+                    <a href="{% url 'Main:index' %}"><button type="button" class ="btn btn-dark">뒤로가기</button></a>
+                </div>
+            </form>
+        </div>
+        <div style="background-color: black; padding-left: 50px; width: 600px;">
+            <img src="https://media2.giphy.com/media/Ltz1ZA728qKw4mEY94/giphy.gif" width="600px" height="660px">
+        </div>
+    </div>
+</body>
+{% endblock%}
